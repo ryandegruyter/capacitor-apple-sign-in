@@ -10,7 +10,7 @@ import AuthenticationServices
 public class AppleSignIn: CAPPlugin {
     var call: CAPPluginCall?
 
-    @objc func login(_ call: CAPPluginCall) {
+    @objc func auth(_ call: CAPPluginCall) {
         self.call = call
 
         if #available(iOS 13.0, *) {
@@ -35,7 +35,7 @@ extension AppleSignIn: ASAuthorizationControllerDelegate {
 
             return
         }
-        
+
         print(appleIDCredential)
 
         let result = [

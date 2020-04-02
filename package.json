@@ -1,6 +1,6 @@
 {
   "name": "cap-apple-sign-in",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Capacitor plugin for implementing Apple sign in",
   "main": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
