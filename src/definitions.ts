@@ -1,9 +1,18 @@
 declare module "@capacitor/core" {
-  interface PluginRegistry {
-    AppleSignInPlugin: AppleSignInPluginPlugin;
-  }
+    interface PluginRegistry {
+        AppleSignIn: AppleSignInPlugin;
+    }
 }
 
-export interface AppleSignInPluginPlugin {
-  login(): Promise<{response: any}>;
+export interface AuthResult {
+    userId: string;
+    identityToken: string;
+    authorizationCode: string;
+    email?: string;
+    familyName?: string;
+    givenName?: string;
+}
+
+export interface AppleSignInPlugin {
+    auth(): Promise<{ authResult: AuthResult }>;
 }

@@ -1,7 +1,7 @@
 {
   "name": "cap-apple-sign-in",
-  "version": "0.0.1",
-  "description": "Apple sign in plugin",
+  "version": "0.0.2",
+  "description": "Capacitor plugin for implementing Apple sign in",
   "main": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
   "scripts": {
@@ -11,6 +11,7 @@
     "prepublishOnly": "npm run build"
   },
   "author": "Ryco",
+  "homepage": "https://ryco.site",
   "license": "MIT",
   "dependencies": {
     "@capacitor/core": "latest"

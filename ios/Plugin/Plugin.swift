@@ -6,8 +6,8 @@ import AuthenticationServices
  * Please read the Capacitor iOS Plugin Development Guide
  * here: https://capacitor.ionicframework.com/docs/plugins/ios
  */
-@objc(AppleSignInPlugin)
-public class AppleSignInPlugin: CAPPlugin {
+@objc(AppleSignIn)
+public class AppleSignIn: CAPPlugin {
     var call: CAPPluginCall?
 
     @objc func login(_ call: CAPPluginCall) {
@@ -28,17 +28,18 @@ public class AppleSignInPlugin: CAPPlugin {
 }
 
 @available(iOS 13.0, *)
-extension AppleSignInPlugin: ASAuthorizationControllerDelegate {
+extension AppleSignIn: ASAuthorizationControllerDelegate {
     public func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         guard let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential else {
             call?.reject("Please, try again.")
 
             return
         }
+        
+        print(appleIDCredential)
 
         let result = [
             "response": [
-                "dude": "dude",
                 "user": appleIDCredential.user,
                 "email": appleIDCredential.email,
                 "givenName": appleIDCredential.fullName?.givenName,

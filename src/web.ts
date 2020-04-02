@@ -1,23 +1,24 @@
-import { WebPlugin } from '@capacitor/core';
-import { AppleSignInPluginPlugin } from './definitions';
+import {WebPlugin} from '@capacitor/core';
+import {AppleSignInPlugin, AuthResult} from './definitions';
 
-export class AppleSignInPluginWeb extends WebPlugin implements AppleSignInPluginPlugin {
-  constructor() {
-    super({
-      name: 'AppleSignInPlugin',
-      platforms: ['web']
-    });
-  }
+export class AppleSignInWeb extends WebPlugin implements AppleSignInPlugin {
+    constructor() {
+        super({
+            name: 'AppleSignIn',
+            platforms: ['web']
+        });
+    }
 
-  async echo(options: { value: string }): Promise<{value: string}> {
-    console.log('ECHO', options);
-    return options;
-  }
+    async auth(): Promise<{ authResult: AuthResult }> {
+        console.log('This plugin only has an iOS implementation');
+        return;
+    }
 }
 
-const AppleSignInPlugin = new AppleSignInPluginWeb();
+const AppleSignIn = new AppleSignInWeb();
 
-export { AppleSignInPlugin };
+export {AppleSignIn};
 
-import { registerWebPlugin } from '@capacitor/core';
-registerWebPlugin(AppleSignInPlugin);
+import {registerWebPlugin} from '@capacitor/core';
+
+registerWebPlugin(AppleSignIn);

@@ -3,6 +3,6 @@
 
 // Define the plugin using the CAP_PLUGIN Macro, and
 // each method the plugin supports using the CAP_PLUGIN_METHOD macro.
-CAP_PLUGIN(AppleSignInPlugin, "AppleSignInPlugin",
-           CAP_PLUGIN_METHOD(login, CAPPluginReturnPromise);
+CAP_PLUGIN(AppleSignIn, "AppleSignIn",
+           CAP_PLUGIN_METHOD(auth, CAPPluginReturnPromise);
 )
